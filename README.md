@@ -28,11 +28,25 @@ npm run dev
 
 - Web: http://localhost:5173
 - API: http://localhost:5050
-- Sign in: `officer@nirman.demo` / `demo123` (also `admin@nirman.demo`, `pm@nirman.demo`)
+### Default login credentials
+
+These demo accounts are created by `npm run seed` and already exist in the hosted database.
+
+| Role | Name | Email | Password |
+|---|---|---|---|
+| Senior officer *(start here — sees the full demo narrative)* | A. Mehra | `officer@nirman.demo` | `demo123` |
+| Platform administrator | R. Iyer | `admin@nirman.demo` | `demo123` |
+| Project manager | S. Deshmukh | `pm@nirman.demo` | `demo123` |
+
+The sign-in page pre-fills the officer account. These are shared demo credentials for evaluation
+only — change or remove them before using the platform with real data.
+
+Live API: https://billions-hackthon.onrender.com (`/api/health` reports status; the free plan
+sleeps when idle, so the first request after a pause can take up to a minute).
 
 ### Optional: live model extraction
 
-Set `ANTHROPIC_API_KEY` in `server/.env` to extract uploaded tenders with a language model.
+Set `GEMINI_API_KEY` in `server/.env` to extract uploaded tenders with a language model.
 Without it, `aiService.extractTender()` falls back to `demoExtraction()` — a deterministic,
 keyword-driven layer — so the demo never breaks on a missing credential. `GET /api/health`
 reports which mode is active, and the tender detail screen labels it.
