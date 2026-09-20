@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <meta name="theme-color" content="#FBFBFD" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#0C0C0E" media="(prefers-color-scheme: dark)" />
+    <meta name="description" content="NIRMAN 360 — from tender to timely delivery." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <title>NIRMAN 360</title>
+    <script>
+      /* Apply the saved appearance before first paint so there is no light/dark flash. */
+      (function () {
+        try {
+          var saved = localStorage.getItem('nirman.theme') || 'system';
+          var dark = saved === 'dark' || (saved === 'system' && window.matchMedia('(prefers-color-scheme: dark)').matches);
+          if (dark) document.documentElement.classList.add('dark');
+        } catch (e) { /* storage unavailable — fall back to light */ }
+      })();
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>

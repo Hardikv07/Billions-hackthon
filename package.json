@@ -1,0 +1,15 @@
+{
+  "name": "nirman360",
+  "private": true,
+  "version": "0.1.0",
+  "description": "NIRMAN 360 — From Tender to Timely Delivery",
+  "scripts": {
+    "install:all": "npm install && npm --prefix server install && npm --prefix client install",
+    "seed": "npm --prefix server run seed",
+    "dev": "concurrently -n api,web -c cyan,magenta \"npm --prefix server run dev\" \"npm --prefix client run dev\"",
+    "build": "npm --prefix server run build && npm --prefix client run build"
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  }
+}

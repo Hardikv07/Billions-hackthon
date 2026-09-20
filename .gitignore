@@ -1,0 +1,16 @@
+node_modules
+dist
+.env
+server/uploads/*
+!server/uploads/.gitkeep
+.DS_Store
+
+# Secrets and local config
+.env.*
+!.env.example
+
+# Build / tooling artifacts
+*.tsbuildinfo
+*.log
+.vscode/
+.idea/
