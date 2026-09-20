@@ -1,0 +1,216 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="980" viewBox="0 0 1600 980" font-family="'Segoe UI', Inter, -apple-system, Arial, sans-serif">
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="9" markerHeight="9" orient="auto">
+      <path d="M0 0 10 5 0 10z" fill="#0064D2"/>
+    </marker>
+    <marker id="arrowGrey" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="9" markerHeight="9" orient="auto">
+      <path d="M0 0 10 5 0 10z" fill="#86868B"/>
+    </marker>
+    <marker id="arrowDown" viewBox="0 0 10 10" refX="5" refY="9" markerWidth="8" markerHeight="8" orient="0">
+      <path d="M0 0 5 10 10 0z" fill="#B4B4BB"/>
+    </marker>
+    <filter id="soft" x="-5%" y="-5%" width="110%" height="115%">
+      <feDropShadow dx="0" dy="1" stdDeviation="2.5" flood-color="#000" flood-opacity="0.07"/>
+    </filter>
+  </defs>
+
+  <rect width="1600" height="980" fill="#FBFBFD"/>
+
+  <!-- Title -->
+  <text x="48" y="66" font-size="32" font-weight="600" fill="#1D1D1F" letter-spacing="-0.8">NIRMAN 360</text>
+  <text x="48" y="94" font-size="16" fill="#6E6E73">System architecture — from tender to timely delivery</text>
+
+  <!-- Column labels -->
+  <g font-size="12" font-weight="600" fill="#86868B" letter-spacing="1.2">
+    <text x="48" y="128">CLIENT</text>
+    <text x="400" y="128">EDGE</text>
+    <text x="720" y="128">APPLICATION</text>
+    <text x="1260" y="128">DATA &amp; SERVICES</text>
+  </g>
+
+  <!-- ============================== BROWSER ============================== -->
+  <g filter="url(#soft)">
+    <rect x="48" y="140" width="280" height="530" rx="16" fill="#FFFFFF" stroke="#E2E2E7"/>
+  </g>
+  <text x="72" y="180" font-size="20" font-weight="600" fill="#1D1D1F">Browser</text>
+  <text x="72" y="202" font-size="13" fill="#6E6E73">React 18 · Vite · TypeScript · Tailwind</text>
+  <line x1="72" y1="222" x2="304" y2="222" stroke="#E9E9EE"/>
+
+  <g font-size="14" fill="#1D1D1F">
+    <text x="72" y="254" font-weight="600">11 screens</text>
+    <g font-size="13.5" fill="#6E6E73">
+      <text x="72" y="278">Overview · Approvals · Projects</text>
+      <text x="72" y="300">Execution windows · Escalations</text>
+      <text x="72" y="322">Tenders · Impact simulator · Reports</text>
+    </g>
+
+    <text x="72" y="370" font-weight="600">State &amp; data</text>
+    <g font-size="13.5" fill="#6E6E73">
+      <text x="72" y="394">TanStack Query — cache and retry</text>
+      <text x="72" y="416">React Router — client-side routes</text>
+      <text x="72" y="438">Auth — JWT held in localStorage</text>
+    </g>
+
+    <text x="72" y="486" font-weight="600">Design system</text>
+    <g font-size="13.5" fill="#6E6E73">
+      <text x="72" y="510">Tokens · light / dark / system</text>
+      <text x="72" y="532">Accessible shared components</text>
+      <text x="72" y="554">React Flow graph · ⌘K search</text>
+    </g>
+  </g>
+  <rect x="72" y="600" width="232" height="52" rx="10" fill="#F5F5F7"/>
+  <text x="88" y="622" font-size="12.5" font-weight="600" fill="#1D1D1F">Same-origin requests</text>
+  <text x="88" y="640" font-size="12.5" fill="#6E6E73">Calls a relative /api — no CORS</text>
+
+  <!-- ============================== EDGE ============================== -->
+  <g filter="url(#soft)">
+    <rect x="400" y="290" width="240" height="250" rx="16" fill="#FFFFFF" stroke="#E2E2E7"/>
+  </g>
+  <rect x="400" y="290" width="240" height="6" rx="3" fill="#0064D2" opacity="0.0"/>
+  <text x="424" y="330" font-size="20" font-weight="600" fill="#1D1D1F">Static site</text>
+  <text x="424" y="352" font-size="13" fill="#6E6E73">Render · nirman360-web</text>
+  <line x1="424" y1="372" x2="616" y2="372" stroke="#E9E9EE"/>
+  <g font-size="13.5" fill="#6E6E73">
+    <text x="424" y="400">Serves the Vite build (dist)</text>
+    <text x="424" y="426"><tspan font-weight="600" fill="#0064D2">/api/*</tspan>  proxied to the API</text>
+    <text x="424" y="452"><tspan font-weight="600" fill="#1D1D1F">/*</tspan>  falls back to index.html</text>
+    <text x="424" y="478">Assets cached for a year</text>
+    <text x="424" y="514" font-size="12.5">Auto-deploys on every push</text>
+  </g>
+
+  <!-- ============================== API ============================== -->
+  <g filter="url(#soft)">
+    <rect x="720" y="140" width="460" height="720" rx="16" fill="#FFFFFF" stroke="#E2E2E7"/>
+  </g>
+  <text x="744" y="180" font-size="20" font-weight="600" fill="#1D1D1F">API service</text>
+  <text x="744" y="202" font-size="13" fill="#6E6E73">Render · nirman360-api · Node 20 · Express · TypeScript</text>
+  <line x1="744" y1="222" x2="1156" y2="222" stroke="#E9E9EE"/>
+
+  <!-- Middleware -->
+  <rect x="744" y="238" width="412" height="58" rx="12" fill="#F5F5F7"/>
+  <text x="762" y="262" font-size="14" font-weight="600" fill="#1D1D1F">Middleware</text>
+  <text x="762" y="282" font-size="12.5" fill="#6E6E73">CORS · JSON body · request log · JWT auth · error handler</text>
+  <line x1="950" y1="298" x2="950" y2="316" stroke="#B4B4BB" stroke-width="1.5" marker-end="url(#arrowDown)"/>
+
+  <!-- Routes -->
+  <rect x="744" y="320" width="412" height="58" rx="12" fill="#F5F5F7"/>
+  <text x="762" y="344" font-size="14" font-weight="600" fill="#1D1D1F">Routes  <tspan fill="#0064D2">/api</tspan></text>
+  <text x="762" y="364" font-size="12.5" fill="#6E6E73">One router — login is public, everything else is guarded</text>
+  <line x1="950" y1="380" x2="950" y2="398" stroke="#B4B4BB" stroke-width="1.5" marker-end="url(#arrowDown)"/>
+
+  <!-- Controllers -->
+  <rect x="744" y="402" width="412" height="58" rx="12" fill="#F5F5F7"/>
+  <text x="762" y="426" font-size="14" font-weight="600" fill="#1D1D1F">Controllers</text>
+  <text x="762" y="446" font-size="12.5" fill="#6E6E73">auth · core · tender — thin: parse, delegate, respond</text>
+  <line x1="950" y1="462" x2="950" y2="480" stroke="#B4B4BB" stroke-width="1.5" marker-end="url(#arrowDown)"/>
+
+  <!-- Services -->
+  <rect x="744" y="484" width="412" height="262" rx="12" fill="#EEF4FE" stroke="#CFE0FA"/>
+  <text x="762" y="508" font-size="14" font-weight="600" fill="#1D1D1F">Services — all business logic</text>
+  <text x="762" y="527" font-size="12.5" fill="#6E6E73">SLA maths · impact graph · readiness · what-if · dossiers</text>
+  <g font-size="13" font-weight="500" fill="#1D1D1F">
+    <g fill="#FFFFFF" stroke="#D3E2F8">
+      <rect x="762" y="544" width="184" height="32" rx="8"/>
+      <rect x="954" y="544" width="184" height="32" rx="8"/>
+      <rect x="762" y="584" width="184" height="32" rx="8"/>
+      <rect x="954" y="584" width="184" height="32" rx="8"/>
+      <rect x="762" y="624" width="184" height="32" rx="8"/>
+      <rect x="954" y="624" width="184" height="32" rx="8"/>
+      <rect x="762" y="664" width="184" height="32" rx="8"/>
+      <rect x="954" y="664" width="184" height="32" rx="8"/>
+      <rect x="762" y="704" width="184" height="32" rx="8"/>
+      <rect x="954" y="704" width="184" height="32" rx="8"/>
+    </g>
+    <text x="778" y="565">slaService</text>
+    <text x="970" y="565">impactService</text>
+    <text x="778" y="605">windowService</text>
+    <text x="970" y="605">simulationService</text>
+    <text x="778" y="645">approvalService</text>
+    <text x="970" y="645">dossierService</text>
+    <text x="778" y="685">dashboardService</text>
+    <text x="970" y="685">searchService</text>
+    <text x="778" y="725">aiService</text>
+    <text x="970" y="725">demoExtraction</text>
+  </g>
+  <line x1="950" y1="748" x2="950" y2="766" stroke="#B4B4BB" stroke-width="1.5" marker-end="url(#arrowDown)"/>
+
+  <!-- Models -->
+  <rect x="744" y="770" width="412" height="74" rx="12" fill="#F5F5F7"/>
+  <text x="762" y="794" font-size="14" font-weight="600" fill="#1D1D1F">Models — Mongoose</text>
+  <text x="762" y="814" font-size="12.5" fill="#6E6E73">Project · Approval · Activity · ExecutionWindow · Escalation</text>
+  <text x="762" y="832" font-size="12.5" fill="#6E6E73">Tender · Department · ProjectEvent · Simulation · User</text>
+
+  <!-- ============================== DATA & SERVICES ============================== -->
+  <!-- Atlas -->
+  <g filter="url(#soft)">
+    <rect x="1260" y="140" width="292" height="250" rx="16" fill="#FFFFFF" stroke="#E2E2E7"/>
+  </g>
+  <text x="1284" y="180" font-size="20" font-weight="600" fill="#1D1D1F">MongoDB Atlas</text>
+  <text x="1284" y="202" font-size="13" fill="#6E6E73">Managed database · finora</text>
+  <line x1="1284" y1="222" x2="1528" y2="222" stroke="#E9E9EE"/>
+  <g font-size="13.5" fill="#6E6E73">
+    <text x="1284" y="250">Projects, approvals, activities,</text>
+    <text x="1284" y="270">windows, escalations, tenders,</text>
+    <text x="1284" y="290">events, simulations and users</text>
+    <text x="1284" y="330" font-size="12.5">Seeded with npm run seed</text>
+    <text x="1284" y="352" font-size="12.5">Network Access must allow Render</text>
+  </g>
+
+  <!-- Gemini -->
+  <rect x="1260" y="430" width="292" height="170" rx="16" fill="#FFFFFF" stroke="#C9C9D0" stroke-dasharray="6 5"/>
+  <text x="1284" y="470" font-size="20" font-weight="600" fill="#1D1D1F">Gemini API</text>
+  <text x="1284" y="492" font-size="13" fill="#6E6E73">Optional</text>
+  <line x1="1284" y1="512" x2="1528" y2="512" stroke="#E9E9EE"/>
+  <g font-size="13.5" fill="#6E6E73">
+    <text x="1284" y="538">Reads tenders when a key is set</text>
+    <text x="1284" y="560">Otherwise the built-in demo</text>
+    <text x="1284" y="580">extraction layer takes over</text>
+  </g>
+
+  <!-- Disk -->
+  <g filter="url(#soft)">
+    <rect x="1260" y="640" width="292" height="170" rx="16" fill="#FFFFFF" stroke="#E2E2E7"/>
+  </g>
+  <text x="1284" y="680" font-size="20" font-weight="600" fill="#1D1D1F">Server disk</text>
+  <text x="1284" y="702" font-size="13" fill="#6E6E73">Ephemeral · cleared on redeploy</text>
+  <line x1="1284" y1="722" x2="1528" y2="722" stroke="#E9E9EE"/>
+  <g font-size="13.5" fill="#6E6E73">
+    <text x="1284" y="748">multer stores uploaded PDFs</text>
+    <text x="1284" y="770">pdf-parse reads their text</text>
+    <text x="1284" y="792" font-size="12.5">Extracted data lives in MongoDB</text>
+  </g>
+
+  <!-- ============================== FLOWS ============================== -->
+  <!-- Browser -> Edge -->
+  <line x1="332" y1="410" x2="396" y2="410" stroke="#0064D2" stroke-width="2" marker-end="url(#arrow)"/>
+  <text x="364" y="398" font-size="12" font-weight="600" fill="#0064D2" text-anchor="middle">HTTPS</text>
+
+  <!-- Edge -> API -->
+  <line x1="644" y1="410" x2="716" y2="410" stroke="#0064D2" stroke-width="2" marker-end="url(#arrow)"/>
+  <text x="680" y="398" font-size="12" font-weight="600" fill="#0064D2" text-anchor="middle">/api/*</text>
+
+  <!-- API -> Atlas -->
+  <path d="M1184 265 H1222 V265 H1256" fill="none" stroke="#0064D2" stroke-width="2" marker-end="url(#arrow)"/>
+  <text x="1220" y="253" font-size="12" font-weight="600" fill="#0064D2" text-anchor="middle">Mongoose</text>
+
+  <!-- API -> Gemini (optional) -->
+  <path d="M1184 515 H1256" fill="none" stroke="#86868B" stroke-width="2" stroke-dasharray="6 5" marker-end="url(#arrowGrey)"/>
+  <text x="1220" y="503" font-size="12" font-weight="600" fill="#6E6E73" text-anchor="middle">HTTPS</text>
+
+  <!-- API -> Disk -->
+  <path d="M1184 725 H1256" fill="none" stroke="#86868B" stroke-width="2" marker-end="url(#arrowGrey)"/>
+  <text x="1220" y="713" font-size="12" font-weight="600" fill="#6E6E73" text-anchor="middle">upload</text>
+
+  <!-- ============================== FOOTER ============================== -->
+  <line x1="48" y1="866" x2="1552" y2="866" stroke="#E9E9EE"/>
+  <g font-size="13" fill="#6E6E73">
+    <line x1="48" y1="898" x2="84" y2="898" stroke="#0064D2" stroke-width="2" marker-end="url(#arrow)"/>
+    <text x="96" y="903">Request path</text>
+    <line x1="208" y1="898" x2="244" y2="898" stroke="#86868B" stroke-width="2" stroke-dasharray="6 5" marker-end="url(#arrowGrey)"/>
+    <text x="256" y="903">Optional or fallback</text>
+    <line x1="424" y1="898" x2="460" y2="898" stroke="#86868B" stroke-width="2" marker-end="url(#arrowGrey)"/>
+    <text x="472" y="903">Supporting I/O</text>
+  </g>
+  <text x="1552" y="903" font-size="13" fill="#6E6E73" text-anchor="end">Deployed as a Render Blueprint (render.yaml) · source on GitHub</text>
+  <text x="48" y="940" font-size="12.5" fill="#86868B">The API never exposes MongoDB, the Gemini key or the JWT secret to the browser — they live only in the API service's environment.</text>
+</svg>

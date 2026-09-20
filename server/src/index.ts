@@ -10,7 +10,23 @@ async function main() {
   await connectDb();
 
   const app = express();
-  app.use(cors({ origin: [env.clientOrigin, 'http://127.0.0.1:5173'] }));
+  app.use(cors({
+    origin(origin, cb) {
+      // Allow requests with no origin (mobile apps, curl, server-to-server)
+      if (!origin) return cb(null, true);
+      const allowed = [
+        env.clientOrigin,
+        'http://localhost:5173',
+        'http://127.0.0.1:5173',
+      ];
+      // Accept any *.vercel.app preview / production URL
+      if (allowed.includes(origin) || /\.vercel\.app$/.test(origin)) {
+        return cb(null, true);
+      }
+      cb(new Error(`CORS: origin ${origin} not allowed`));
+    },
+    credentials: true,
+  }));
   app.use(express.json({ limit: '2mb' }));
   app.use(morgan('dev'));
 

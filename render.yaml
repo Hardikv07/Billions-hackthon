@@ -50,7 +50,7 @@ services:
       # update the destination to match the URL shown on the nirman360-api service.
       - type: rewrite
         source: /api/*
-        destination: https://nirman360-api.onrender.com/api/*
+        destination: https://billions-hackthon.onrender.com/api/*
       - type: rewrite
         source: /*
         destination: /index.html

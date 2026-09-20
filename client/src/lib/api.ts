@@ -1,4 +1,6 @@
-const BASE = '/api';
+// In production (Vercel) VITE_API_URL points directly to the Render backend.
+// In local dev it falls back to '/api' which the vite dev-server proxies to localhost:5050.
+const BASE = import.meta.env.VITE_API_URL || '/api';
 
 export class ApiError extends Error {
   constructor(public status: number, message: string) { super(message); }
