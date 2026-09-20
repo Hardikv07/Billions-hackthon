@@ -1,0 +1,60 @@
+# Render Blueprint for NIRMAN 360.
+# Dashboard → New → Blueprint → pick this repo. Render will ask for the `sync: false` values below.
+#
+# Two services:
+#   nirman360-api  — Express + MongoDB API (web service)
+#   nirman360-web  — Vite/React client (static site) that proxies /api/* to the API,
+#                    so the browser only ever talks to one origin and CORS is not involved.
+
+services:
+  # ------------------------------------------------------------------ API
+  - type: web
+    name: nirman360-api
+    runtime: node
+    plan: free
+    region: singapore          # closest Render region to India; change if you prefer
+    rootDir: server
+    # tsc is a devDependency, and Render sets NODE_ENV=production, so dev deps must be requested.
+    buildCommand: npm ci --include=dev && npm run build
+    startCommand: npm start
+    healthCheckPath: /api/health
+    autoDeploy: true
+    envVars:
+      - key: NODE_VERSION
+        value: 20
+      - key: MONGO_URI          # your MongoDB Atlas connection string (paste in the dashboard)
+        sync: false
+      - key: JWT_SECRET         # generated once by Render — never committed
+        generateValue: true
+      - key: CLIENT_ORIGIN      # the static site URL, e.g. https://nirman360-web.onrender.com
+        sync: false
+      - key: GEMINI_API_KEY     # optional — leave blank to use the built-in demo extraction
+        sync: false
+      - key: AI_MODEL
+        value: gemini-1.5-flash
+
+  # --------------------------------------------------------------- Client
+  - type: web
+    name: nirman360-web
+    runtime: static
+    rootDir: client
+    buildCommand: npm ci --include=dev && npm run build
+    staticPublishPath: dist
+    autoDeploy: true
+    envVars:
+      - key: NODE_VERSION
+        value: 20
+    routes:
+      # Order matters: proxy the API first, then fall back to the SPA for client-side routes.
+      # If Render gives the API a different hostname (it adds a suffix when the name is taken),
+      # update the destination to match the URL shown on the nirman360-api service.
+      - type: rewrite
+        source: /api/*
+        destination: https://nirman360-api.onrender.com/api/*
+      - type: rewrite
+        source: /*
+        destination: /index.html
+    headers:
+      - path: /assets/*
+        name: Cache-Control
+        value: public, max-age=31536000, immutable
